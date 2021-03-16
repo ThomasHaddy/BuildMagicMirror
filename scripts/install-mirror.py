@@ -2,7 +2,7 @@
 
 import os
 import subprocess
-import shutil
+from sys import exit
 
 # Installs using npm
 def install():
@@ -11,22 +11,23 @@ def install():
 
 # Installs a module using "module_name" as the directory
 def install_module(module_name):
-   print()
-   print("Installing "+ module_name)
-   os.chdir(os.path.expanduser("~")+'/MagicMirror/modules/' + module_name)
+   print("\nInstalling "+ module_name)
+   os.chdir("/home/pi/MagicMirror/modules/" + module_name)
    install()
 
-# Install
+# Installs the base application MagicMirror
+def install_mirror():
+   os.chdir("/home/pi/MagicMirror/")
+   shutil.copy2("/home/pi/config/config.js", "/home/pi/MagicMirror/config/")
+   print("\nInstalling Magic Mirror")
+   install()
+
 def main():
-    install_module("MMM-NowPlayingOnSpotify")
-    install_module("MMM-3Day-Forecast")
-    os.chdir(os.path.expanduser("~")+'/MagicMirror/')
-    shutil.copy2('/home/pi/config/config.js', '/home/pi/MagicMirror/config/')
-    print()
-    print("Installing Magic Mirror")
-    install()
-    os.system("python3 $HOME/MagicMirror/scripts/launch/run-mirror.py")
+   module_list = [ module for module in os.listdir("/home/pi/MagicMirror/modules/") if os.path.isdir(os.path.join("/home/pi/MagicMirror/modules/", module)) ]
+   module_list.remove("default")
+   for mod in module_list:
+      install_module(mod)
+   install_mirror()
 
 if __name__ == "__main__":
    main()
-
