@@ -3,6 +3,7 @@
 import os
 import subprocess
 from sys import exit
+from shutil import copy2
 
 # Installs using npm
 def install():
@@ -18,13 +19,14 @@ def install_module(module_name):
 # Installs the base application MagicMirror
 def install_mirror():
    os.chdir("/home/pi/MagicMirror/")
-   shutil.copy2("/home/pi/config/config.js", "/home/pi/MagicMirror/config/")
+   copy2("/home/pi/config/config.js", "/home/pi/MagicMirror/config/")
    print("\nInstalling Magic Mirror")
    install()
 
 def main():
    module_list = [ module for module in os.listdir("/home/pi/MagicMirror/modules/") if os.path.isdir(os.path.join("/home/pi/MagicMirror/modules/", module)) ]
    module_list.remove("default")
+   print("Modules:\n" + ' \n'.join(module_list))
    for mod in module_list:
       install_module(mod)
    install_mirror()

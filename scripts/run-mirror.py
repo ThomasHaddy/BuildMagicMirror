@@ -5,7 +5,7 @@ import subprocess
 from shutil import copy2
 
 def get_config():
-   if os.exists("/home/pi/config/config.js"):
+   if os.path.exists("/home/pi/config/config.js"):
       print("\n----------Using User Config--------------\n")
       copy2("/home/pi/config/config.js", "/home/pi/MagicMirror/config/")
    else:

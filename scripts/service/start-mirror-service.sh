@@ -1,6 +1,8 @@
 #!/bin/bash
 
-./stop-mirror-service.sh
-sudo cp /home/pi/MagicMirror/scripts/service-startup/magic-mirror.service /etc/systemd/system/
+SERV_PATH=/home/pi/BuildMagicMirror/scripts/service
+$SERV_PATH/stop-mirror-service.sh
+sudo cp $SERV_PATH/magic-mirror.service /etc/systemd/system/
 sudo systemctl enable --now magic-mirror.service
 echo "MagicMirror Service Created for Startup"
+

@@ -6,7 +6,7 @@ Description=MagicMirror
 After=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/python3 /home/pi/MagicMirror/scripts/run-mirror.py
+ExecStart=/usr/bin/python3 /home/pi/BuildMagicMirror/scripts/run-mirror.py
 User=pi
 Restart=always
 

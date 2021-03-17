@@ -13,4 +13,8 @@ USE:
    python3 /home/pi/BuildMagicMirror/start-mirror.py
 
 NOTE:
-   Due to security reason, I cannot add my config.js file in.
+   Due to security reason, I cannot add my config.js file in. Instead,
+   I made a templated version without any keys.
+
+- Thomas Haddy 03-16-2021
+
