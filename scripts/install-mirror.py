@@ -19,7 +19,6 @@ def install_module(module_name):
 # Installs the base application MagicMirror
 def install_mirror():
    os.chdir("/home/pi/MagicMirror/")
-   copy2("/home/pi/config/config.js", "/home/pi/MagicMirror/config/")
    print("\nInstalling Magic Mirror")
    install()
 
