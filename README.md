@@ -9,7 +9,7 @@ PREREQUISITES:
    Create and edit config file at /home/pi/config/config.js
 
 USE:
-   To build the MagicMirror Application, execute the followiung script:
+   To build the MagicMirror Application, execute the following script:
    python3 /home/pi/BuildMagicMirror/start-mirror.py
 
 NOTE:
